@@ -21,7 +21,7 @@ import android.content.Context
 
 import com.timebudget.data.RepositoryTimeTracker
 import com.timebudget.data.database.AppDatabase
-import com.timebudget.data.database.NotesLocalDataSource
+import com.timebudget.data.database.LocalDataSource
 import com.timebudget.ui.noteslist.TimeTrackerListViewModelFactory
 import com.timebudget.ui.savenote.TrackTimeViewModelFactory
 import java.util.concurrent.Executors
@@ -35,16 +35,16 @@ import java.util.concurrent.Executors
 object Injection {
 
     /**
-     * Creates an instance of [NotesLocalDataSource] based on the database DAO.
+     * Creates an instance of [LocalDataSource] based on the database DAO.
      */
-    private fun provideLocalNotesDatasource(context: Context): NotesLocalDataSource {
+    private fun provideLocalNotesDatasource(context: Context): LocalDataSource {
         val database = AppDatabase.getInstance(context)
-        return NotesLocalDataSource(database.noteDao(), Executors.newSingleThreadExecutor())
+        return LocalDataSource(database.noteDao(), Executors.newSingleThreadExecutor())
     }
 
     /**
      * Creates an instance of [RepositoryTimeTracker] based on the [Network Service if Implemented] and a
-     * [NotesLocalDataSource]
+     * [LocalDataSource]
      */
     private fun provideRepositoryNotes(context: Context): RepositoryTimeTracker {
         return RepositoryTimeTracker(provideLocalNotesDatasource(context))

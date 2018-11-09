@@ -2,14 +2,14 @@ package com.timebudget.data
 
 import android.arch.lifecycle.LiveData
 import android.arch.paging.LivePagedListBuilder
-import com.timebudget.data.database.NotesLocalDataSource
+import com.timebudget.data.database.LocalDataSource
 import com.timebudget.entities.TimeTrackEntry
 import com.timebudget.entities.ResponseTimeTrackerRepo
 
 /**
  * Created by emil.ivanov on 9/18/18.
  */
-class RepositoryTimeTracker(private val localDataSource: NotesLocalDataSource) {
+class RepositoryTimeTracker(private val localDataSource: LocalDataSource) {
 
 
     fun insert(timeTracker: TimeTrackEntry) {

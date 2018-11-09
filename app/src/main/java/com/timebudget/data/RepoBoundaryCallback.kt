@@ -2,7 +2,7 @@ package com.timebudget.data
 
 import android.arch.paging.PagedList
 import android.util.Log
-import com.timebudget.data.database.NotesLocalDataSource
+import com.timebudget.data.database.LocalDataSource
 import com.timebudget.entities.TimeTrackEntry
 
 /**
@@ -12,7 +12,7 @@ import com.timebudget.entities.TimeTrackEntry
  * On such occasion if there is a remote repository we load the items from network and insert them in DB
  *
  */
-class RepoBoundaryCallback(localDataSource: NotesLocalDataSource) : PagedList.BoundaryCallback<TimeTrackEntry>() {
+class RepoBoundaryCallback(localDataSource: LocalDataSource) : PagedList.BoundaryCallback<TimeTrackEntry>() {
 
     override fun onZeroItemsLoaded() {
         Log.d("Boundary", "onZeroItemsLoaded")

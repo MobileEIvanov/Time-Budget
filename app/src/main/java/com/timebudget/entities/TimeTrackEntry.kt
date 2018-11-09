@@ -9,7 +9,7 @@ import java.util.*
 /**
  * TimeTrackEntry presentation
  */
-@Entity(tableName = "note")
+@Entity(tableName = "tracker")
 data class TimeTrackEntry(@PrimaryKey(autoGenerate = true) val id: Long,
                           val title: String,
                           val description: String,

@@ -9,36 +9,36 @@ import java.util.concurrent.Executor
  * Local data source class responsible for making local database request.
  * The class uses Executor for performing work outside the main thread
  */
-class NotesLocalDataSource(
-        private val noteEntryDao: NoteEntryDao,
-        private val ioExecutor: Executor) {
+class LocalDataSource(
+    private val trackerEntryDao: TrackerEntryDao,
+    private val ioExecutor: Executor) {
 
 
     fun insert(noteEntry: TimeTrackEntry) {
         ioExecutor.execute {
-            noteEntryDao.insertNote(noteEntry)
+            trackerEntryDao.insert(noteEntry)
         }
     }
 
     fun update(noteEntry: TimeTrackEntry) {
         ioExecutor.execute {
-            noteEntryDao.updateNote(noteEntry)
+            trackerEntryDao.update(noteEntry)
         }
     }
 
 
     fun delete(noteEntry: TimeTrackEntry) {
         ioExecutor.execute {
-            noteEntryDao.deleteNote(noteEntry)
+            trackerEntryDao.delete(noteEntry)
         }
     }
 
     fun fetchById(id: Long): LiveData<TimeTrackEntry> {
-        return noteEntryDao.loadNoteById(id)
+        return trackerEntryDao.loadById(id)
     }
 
     fun query(): DataSource.Factory<Int, TimeTrackEntry> {
-        return noteEntryDao.loadAllNotes()
+        return trackerEntryDao.loadAll()
     }
 
 }

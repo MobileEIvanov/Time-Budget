@@ -13,7 +13,7 @@ import com.timebudget.entities.TimeTrackEntry
 @Database(entities = [TimeTrackEntry::class], version = 1, exportSchema = false)
 @TypeConverters(DateConverterKt::class)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun noteDao(): NoteEntryDao
+    abstract fun noteDao(): TrackerEntryDao
 
     companion object {
         const val DATABASE_NAME = "time_budget"

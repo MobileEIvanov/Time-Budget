@@ -17,7 +17,7 @@ class ActivityTimeTrackerList : AppCompatActivity() {
 
 
     var viewModel: TimeTrackerListViewModel? = null
-    private lateinit var adapterNotes: AdapterTimeTracker
+    private lateinit var adapter: AdapterTimeTracker
     var listenerAddNote = View.OnClickListener {
 
         showSaveDialog(TimeTrackEntry.DEFAULT_ID)
@@ -35,27 +35,27 @@ class ActivityTimeTrackerList : AppCompatActivity() {
     private fun initialize() {
         viewModel = ViewModelProviders.of(this, Injection.provideNotesListViewModelFactory(this))
                 .get(TimeTrackerListViewModel::class.java)
-        adapterNotes = AdapterTimeTracker(this::onNoteClickInteraction, this::onNoteDeleteInteraction)
-        rvListNotes.adapter = adapterNotes
+        adapter = AdapterTimeTracker(this::onNoteClickInteraction, this::onNoteDeleteInteraction)
+        rvList.adapter = adapter
 
-        bntAddNote.setOnClickListener(listenerAddNote)
+        bntAdd.setOnClickListener(listenerAddNote)
     }
 
     private fun loadData() {
         viewModel?.getNotes()?.observe(this, Observer {
 
             showEmptyList(it?.size == 0)
-            adapterNotes.submitList(it)
+            adapter.submitList(it)
         })
     }
 
     private fun showEmptyList(show: Boolean) {
         if (show) {
             emptyList.visibility = View.VISIBLE
-            rvListNotes.visibility = View.GONE
+            rvList.visibility = View.GONE
         } else {
             emptyList.visibility = View.GONE
-            rvListNotes.visibility = View.VISIBLE
+            rvList.visibility = View.VISIBLE
         }
     }
 
