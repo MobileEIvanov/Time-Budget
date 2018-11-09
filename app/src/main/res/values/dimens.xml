@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimen_fab_margin">16dp</dimen>
+    <dimen name="dimen_vertical_padding_list">8dp</dimen>
+    <dimen name="dimen_text_padding">16dp</dimen>
+    <dimen name="dimen_vertical_margin_text">16dp</dimen>
+    <dimen name="list_item_spacing">16dp</dimen>
+    <dimen name="list_item_spacing_half">8dp</dimen>
+    <dimen name="dimen_list_item_horizontal_margin">16dp</dimen>
+    <dimen name="dimen_list_item_action_delete">36dp</dimen>
+    <dimen name="dimen_list_action_margin">16dp</dimen>
+    <dimen name="dimen_font_size_empty_list">22sp</dimen>
+</resources>
