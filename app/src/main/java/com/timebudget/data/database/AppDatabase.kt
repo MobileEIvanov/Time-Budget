@@ -5,12 +5,12 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.TypeConverters
 import android.content.Context
-import com.timebudget.entities.TimeTrackEntry
+import com.timebudget.entities.TimeEntry
 
 /**
  *
  */
-@Database(entities = [TimeTrackEntry::class], version = 1, exportSchema = false)
+@Database(entities = [TimeEntry::class], version = 1, exportSchema = false)
 @TypeConverters(DateConverterKt::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun noteDao(): TrackerEntryDao

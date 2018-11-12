@@ -1,4 +1,4 @@
-package com.timebudget.ui.noteslist
+package com.timebudget.ui.trackerlist
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -9,8 +9,8 @@ import android.view.View
 import com.facebook.stetho.Stetho
 import com.timebudget.Injection
 import com.timebudget.R
-import com.timebudget.entities.TimeTrackEntry
-import com.timebudget.ui.savenote.TrackTimeView
+import com.timebudget.entities.TimeEntry
+import com.timebudget.ui.trackactivity.TrackTimeView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class ActivityTimeTrackerList : AppCompatActivity() {
@@ -20,7 +20,7 @@ class ActivityTimeTrackerList : AppCompatActivity() {
     private lateinit var adapter: AdapterTimeTracker
     var listenerAddNote = View.OnClickListener {
 
-        showSaveDialog(TimeTrackEntry.DEFAULT_ID)
+        showSaveDialog(TimeEntry.DEFAULT_ID)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,12 +60,12 @@ class ActivityTimeTrackerList : AppCompatActivity() {
     }
 
 
-    private fun onNoteClickInteraction(noteEntry: TimeTrackEntry) {
+    private fun onNoteClickInteraction(noteEntry: TimeEntry) {
         showSaveDialog(noteEntry.id)
     }
 
 
-    private fun onNoteDeleteInteraction(noteEntry: TimeTrackEntry) {
+    private fun onNoteDeleteInteraction(noteEntry: TimeEntry) {
         viewModel?.delete(noteEntry)
     }
 

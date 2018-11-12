@@ -22,8 +22,8 @@ import android.content.Context
 import com.timebudget.data.RepositoryTimeTracker
 import com.timebudget.data.database.AppDatabase
 import com.timebudget.data.database.LocalDataSource
-import com.timebudget.ui.noteslist.TimeTrackerListViewModelFactory
-import com.timebudget.ui.savenote.TrackTimeViewModelFactory
+import com.timebudget.ui.trackerlist.TimeTrackerListViewModelFactory
+import com.timebudget.ui.trackactivity.TrackTimeViewModelFactory
 import java.util.concurrent.Executors
 
 /**

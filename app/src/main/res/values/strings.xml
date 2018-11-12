@@ -6,9 +6,11 @@
     <string name="add_activity">Add Activity</string>
 
     <!--Create Note-->
-    <string name="label_title">Title</string>
+    <string name="label_time_spend">Title</string>
     <string name="label_desc">Describe </string>
     <string name="btn_save">SAVE</string>
     <string name="text_empty_data">No Activities Tracked</string>
+    <string name="time_interval_hours">Hours</string>
+    <string name="time_interval_minutes">Minutes</string>
 
 </resources>

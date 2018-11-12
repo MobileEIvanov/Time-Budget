@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:elevation="8dp"
+    android:minHeight="300dp"
+    android:padding="16dp">
+
+    <android.support.design.button.MaterialButton
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_vertical_margin_text"
+        android:hint="@string/label_desc"
+        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSave">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/inputNoteDesc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLength="500"
+            android:maxLines="20"
+            android:textColor="@color/selector_edit_text_state"
+            tools:text="Electronics"/>
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutTime"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/label_time_spend"
+        app:boxBackgroundMode="none"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+        app:layout_constraintEnd_toStartOf="@+id/groupIntervalType"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutDesc">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/interval"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="numberDecimal"
+            android:maxLength="50"
+            android:maxLines="1"
+            android:singleLine="true"
+            tools:text="2.5"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/groupIntervalType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayoutTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayoutTime"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutDesc">
+
+        <RadioButton
+            android:id="@+id/btnHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/time_interval_hours"
+            />
+
+        <RadioButton
+            android:id="@+id/btnMinutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/time_interval_minutes"/>
+
+    </RadioGroup>
+
+</android.support.constraint.ConstraintLayout>

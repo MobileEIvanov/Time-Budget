@@ -3,7 +3,7 @@ package com.timebudget.data.database
 import android.arch.lifecycle.LiveData
 import android.arch.paging.DataSource
 import android.arch.persistence.room.*
-import com.timebudget.entities.TimeTrackEntry
+import com.timebudget.entities.TimeEntry
 
 
 /**
@@ -13,20 +13,20 @@ import com.timebudget.entities.TimeTrackEntry
 interface TrackerEntryDao {
 
     @Query("SELECT * FROM tracker ORDER BY updated_at")
-    fun loadAll(): DataSource.Factory<Int, TimeTrackEntry>
+    fun loadAll(): DataSource.Factory<Int, TimeEntry>
 
     @Insert
-    fun insert(timeEntry: TimeTrackEntry)
+    fun insert(timeEntry: TimeEntry)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun update(timeEntry: TimeTrackEntry)
+    fun update(timeEntry: TimeEntry)
 
     @Delete
-    fun delete(timeEntry: TimeTrackEntry)
+    fun delete(timeEntry: TimeEntry)
 
     @Query("SELECT * FROM tracker WHERE (id LIKE :id)")
-    fun loadById(id: Long): LiveData<TimeTrackEntry>
+    fun loadById(id: Long): LiveData<TimeEntry>
 
-    @Query("SELECT * FROM tracker WHERE title LIKE :title")
-    fun searchByTitle(title: String): TimeTrackEntry
+    @Query("SELECT * FROM tracker WHERE description LIKE :description")
+    fun searchByTitle(description: String): TimeEntry
 }

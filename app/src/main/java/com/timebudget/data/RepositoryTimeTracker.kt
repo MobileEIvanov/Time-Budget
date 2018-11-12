@@ -3,7 +3,7 @@ package com.timebudget.data
 import android.arch.lifecycle.LiveData
 import android.arch.paging.LivePagedListBuilder
 import com.timebudget.data.database.LocalDataSource
-import com.timebudget.entities.TimeTrackEntry
+import com.timebudget.entities.TimeEntry
 import com.timebudget.entities.ResponseTimeTrackerRepo
 
 /**
@@ -12,17 +12,17 @@ import com.timebudget.entities.ResponseTimeTrackerRepo
 class RepositoryTimeTracker(private val localDataSource: LocalDataSource) {
 
 
-    fun insert(timeTracker: TimeTrackEntry) {
+    fun insert(timeTracker: TimeEntry) {
         localDataSource.insert(timeTracker)
     }
 
 
-    fun update(timeTracker: TimeTrackEntry) {
+    fun update(timeTracker: TimeEntry) {
         localDataSource.update(timeTracker)
     }
 
 
-    fun delete(timeTracker: TimeTrackEntry) {
+    fun delete(timeTracker: TimeEntry) {
         localDataSource.delete(timeTracker)
     }
 
@@ -40,7 +40,7 @@ class RepositoryTimeTracker(private val localDataSource: LocalDataSource) {
     }
 
 
-    fun fetchById(id: Long): LiveData<TimeTrackEntry> {
+    fun fetchById(id: Long): LiveData<TimeEntry> {
         return localDataSource.fetchById(id)
     }
 

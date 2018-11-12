@@ -1,4 +1,4 @@
-package com.timebudget.ui.noteslist
+package com.timebudget.ui.trackerlist
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider

@@ -2,7 +2,7 @@ package com.timebudget.data.database
 
 import android.arch.lifecycle.LiveData
 import android.arch.paging.DataSource
-import com.timebudget.entities.TimeTrackEntry
+import com.timebudget.entities.TimeEntry
 import java.util.concurrent.Executor
 
 /**
@@ -14,30 +14,30 @@ class LocalDataSource(
     private val ioExecutor: Executor) {
 
 
-    fun insert(noteEntry: TimeTrackEntry) {
+    fun insert(noteEntry: TimeEntry) {
         ioExecutor.execute {
             trackerEntryDao.insert(noteEntry)
         }
     }
 
-    fun update(noteEntry: TimeTrackEntry) {
+    fun update(noteEntry: TimeEntry) {
         ioExecutor.execute {
             trackerEntryDao.update(noteEntry)
         }
     }
 
 
-    fun delete(noteEntry: TimeTrackEntry) {
+    fun delete(noteEntry: TimeEntry) {
         ioExecutor.execute {
             trackerEntryDao.delete(noteEntry)
         }
     }
 
-    fun fetchById(id: Long): LiveData<TimeTrackEntry> {
+    fun fetchById(id: Long): LiveData<TimeEntry> {
         return trackerEntryDao.loadById(id)
     }
 
-    fun query(): DataSource.Factory<Int, TimeTrackEntry> {
+    fun query(): DataSource.Factory<Int, TimeEntry> {
         return trackerEntryDao.loadAll()
     }
 

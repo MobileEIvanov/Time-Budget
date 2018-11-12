@@ -1,4 +1,4 @@
-package com.timebudget.ui.savenote
+package com.timebudget.ui.trackactivity
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider

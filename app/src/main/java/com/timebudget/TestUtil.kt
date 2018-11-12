@@ -1,11 +1,18 @@
 package com.timebudget
 
-import com.timebudget.entities.TimeTrackEntry
+import com.timebudget.entities.IntervalType
+import com.timebudget.entities.TimeEntry
 import java.sql.Date
 
 /**
  * Created by emil.ivanov on 9/21/18.
  */
-fun createNote(): TimeTrackEntry {
-    return TimeTrackEntry(0, "", "", 0, Date.valueOf(System.currentTimeMillis().toString()))
+fun createTimeEntry(): TimeEntry {
+    return TimeEntry(
+        0,
+        "",
+        1,
+        IntervalType.HOURS.value,
+        Date.valueOf(System.currentTimeMillis().toString())
+    )
 }

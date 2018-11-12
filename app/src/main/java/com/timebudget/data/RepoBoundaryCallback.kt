@@ -3,7 +3,7 @@ package com.timebudget.data
 import android.arch.paging.PagedList
 import android.util.Log
 import com.timebudget.data.database.LocalDataSource
-import com.timebudget.entities.TimeTrackEntry
+import com.timebudget.entities.TimeEntry
 
 /**
  * Created by emil.ivanov on 9/19/18.
@@ -12,14 +12,14 @@ import com.timebudget.entities.TimeTrackEntry
  * On such occasion if there is a remote repository we load the items from network and insert them in DB
  *
  */
-class RepoBoundaryCallback(localDataSource: LocalDataSource) : PagedList.BoundaryCallback<TimeTrackEntry>() {
+class RepoBoundaryCallback(localDataSource: LocalDataSource) : PagedList.BoundaryCallback<TimeEntry>() {
 
     override fun onZeroItemsLoaded() {
         Log.d("Boundary", "onZeroItemsLoaded")
     }
 
-    override fun onItemAtEndLoaded(itemAtEnd: TimeTrackEntry) {
-        Log.d("Boundary", "onItemAtEndLoaded:" + itemAtEnd.title)
+    override fun onItemAtEndLoaded(itemAtEnd: TimeEntry) {
+        Log.d("Boundary", "onItemAtEndLoaded:" + itemAtEnd.interval)
     }
 
 }
