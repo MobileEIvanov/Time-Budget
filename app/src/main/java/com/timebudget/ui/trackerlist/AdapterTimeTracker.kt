@@ -17,9 +17,10 @@ import kotlinx.android.synthetic.main.item_list_time_tracker.view.*
  * https://www.andreasjakl.com/recyclerview-kotlin-style-click-listener-android/
  */
 class AdapterTimeTracker
-constructor(private val clickListener: (TimeEntry) -> Unit,
-            private val deleteNoteListener: (TimeEntry) -> Unit)
-    : PagedListAdapter<TimeEntry, AdapterTimeTracker.VHTimeTracker>(TIME_TRACKER_COMPARATOR) {
+constructor(
+    private val clickListener: (TimeEntry) -> Unit,
+    private val deleteNoteListener: (TimeEntry) -> Unit
+) : PagedListAdapter<TimeEntry, AdapterTimeTracker.VHTimeTracker>(TIME_TRACKER_COMPARATOR) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHTimeTracker {
@@ -41,13 +42,17 @@ constructor(private val clickListener: (TimeEntry) -> Unit,
         private var timeEntry: TimeEntry? = null
 
 
-        fun bindData(note: TimeEntry?, clickListener: (TimeEntry) -> Unit, deleteNoteListener: (TimeEntry) -> Unit) {
-            if (note != null) {
-                this.timeEntry = note
-                view.tvTitle.text = note.interval
-                view.tvDescription.text = note.description
-                view.btnDelete.setOnClickListener { deleteNoteListener(note) }
-                view.setOnClickListener { clickListener(note) }
+        fun bindData(
+            timeEntry: TimeEntry?,
+            clickListener: (TimeEntry) -> Unit,
+            deleteNoteListener: (TimeEntry) -> Unit
+        ) {
+            if (timeEntry != null) {
+                this.timeEntry = timeEntry
+                view.tvTitle.text = timeEntry.interval.toString()
+                view.tvDescription.text = timeEntry.description
+                view.btnDelete.setOnClickListener { deleteNoteListener(timeEntry) }
+                view.setOnClickListener { clickListener(timeEntry) }
             }
         }
     }
@@ -56,12 +61,10 @@ constructor(private val clickListener: (TimeEntry) -> Unit,
     companion object {
         private val TIME_TRACKER_COMPARATOR = object : DiffUtil.ItemCallback<TimeEntry>() {
             override fun areItemsTheSame(oldItem: TimeEntry, newItem: TimeEntry): Boolean =
-                    oldItem.interval == newItem.interval
+                oldItem.interval == newItem.interval
 
             override fun areContentsTheSame(oldItem: TimeEntry, newItem: TimeEntry): Boolean =
-                    oldItem == newItem
+                oldItem == newItem
         }
     }
-
-
 }

@@ -2,7 +2,8 @@ package com.timebudget
 
 import com.timebudget.entities.IntervalType
 import com.timebudget.entities.TimeEntry
-import java.sql.Date
+import java.util.*
+
 
 /**
  * Created by emil.ivanov on 9/21/18.
@@ -11,8 +12,8 @@ fun createTimeEntry(): TimeEntry {
     return TimeEntry(
         0,
         "",
-        1,
+        1.0,
         IntervalType.HOURS.value,
-        Date.valueOf(System.currentTimeMillis().toString())
+        GregorianCalendar.getInstance(TimeZone.getDefault()).time
     )
 }

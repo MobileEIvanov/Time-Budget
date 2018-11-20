@@ -12,7 +12,7 @@ import com.timebudget.entities.TimeEntry
 @Dao
 interface TrackerEntryDao {
 
-    @Query("SELECT * FROM tracker ORDER BY updated_at")
+    @Query("SELECT * FROM time_tracker ORDER BY updated_at")
     fun loadAll(): DataSource.Factory<Int, TimeEntry>
 
     @Insert
@@ -24,9 +24,9 @@ interface TrackerEntryDao {
     @Delete
     fun delete(timeEntry: TimeEntry)
 
-    @Query("SELECT * FROM tracker WHERE (id LIKE :id)")
+    @Query("SELECT * FROM time_tracker WHERE (id LIKE :id)")
     fun loadById(id: Long): LiveData<TimeEntry>
 
-    @Query("SELECT * FROM tracker WHERE description LIKE :description")
+    @Query("SELECT * FROM time_tracker WHERE description LIKE :description")
     fun searchByTitle(description: String): TimeEntry
 }

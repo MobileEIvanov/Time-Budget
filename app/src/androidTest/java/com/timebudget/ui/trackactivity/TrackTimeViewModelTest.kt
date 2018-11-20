@@ -1,9 +1,8 @@
 package com.timebudget.ui.trackactivity
 
+
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import android.arch.lifecycle.Observer
-import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.verify
 import com.timebudget.createTimeEntry
 import com.timebudget.data.RepositoryTimeTracker
 import org.junit.Before
@@ -40,5 +39,4 @@ class TrackTimeViewModelTest {
         // Assert
         verify(viewModel.repository).insert(timeEntry)
     }
-
 }

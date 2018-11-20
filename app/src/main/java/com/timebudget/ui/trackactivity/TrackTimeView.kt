@@ -45,7 +45,7 @@ class TrackTimeView : BottomSheetDialogFragment() {
     }
 
     fun saveTimeEntry(description: String, interval: Double, intervalType: String) {
-        val timeNow = GregorianCalendar.getInstance(TimeZone.getDefault()).time;
+        val timeNow = GregorianCalendar.getInstance(TimeZone.getDefault()).time
         if (noteId != TimeEntry.DEFAULT_ID) {
             viewModel!!.update(TimeEntry(noteId, description, interval, intervalType, timeNow))
         } else {
